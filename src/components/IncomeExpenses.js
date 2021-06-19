@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
+// プラスはいくらか マイナスはいくらかを計算する
 export const IncomeExpenses = () => {
   const { transactions } = useContext(GlobalContext);
 

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 import { GlobalContext } from "../context/GlobalState";
 
+// 入力された金額を足し算する
 export const Balance = () => {
   const { transactions } = useContext(GlobalContext);
 

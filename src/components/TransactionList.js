@@ -3,6 +3,7 @@ import { GlobalContext } from "../context/GlobalState";
 
 import { Transaction } from "./Transaction";
 
+// 取引履歴
 export const TransactionList = () => {
   const { transactions } = useContext(GlobalContext);
   return (
