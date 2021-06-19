@@ -8,18 +8,19 @@ export const AddTransaction = () => {
   const { addTransaction } = useContext(GlobalContext);
 
   const onSubmit = (e) => {
-    e.prevntDefault();
+    e.preventDefault();
 
     const newTransaction = {
-      // Math.floorでランダムなIDをつけてる
       id: Math.floor(Math.random() * 100000000),
       text,
       amount: +amount,
     };
 
     addTransaction(newTransaction);
-  };
 
+    setText("");
+    setAmount(0);
+  };
   return (
     <div>
       <h3>Add new transaction</h3>
