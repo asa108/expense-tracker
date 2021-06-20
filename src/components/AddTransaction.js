@@ -1,10 +1,22 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 
 // 取引金額を入力
 export const AddTransaction = () => {
   const [text, setText] = useState("");
+  console.log("text", text);
   const [amount, setAmount] = useState(0);
+
+  // useEffect(() => {
+  //   const text = JSON.stringify(localStorage.getItem("text"));
+  //   if (text) {
+  //     setText(text);
+  //   }
+  // }, [text]);
+
+  // useEffect(() => {
+  //   localStorage.setItem("text", JSON.stringify(text));
+  // }, [text]);
 
   const { addTransaction } = useContext(GlobalContext);
 
@@ -19,9 +31,17 @@ export const AddTransaction = () => {
 
     addTransaction(newTransaction);
 
+    localStorage.setItem("text", JSON.stringify(text));
+
     setText("");
     setAmount(0);
   };
+
+  useEffect(() => {
+    const defaultValue = JSON.parse(localStorage.getItem("form"));
+    setText("text", defaultValue?.text);
+  }, []);
+
   return (
     <div>
       <h3>Add new transaction</h3>
